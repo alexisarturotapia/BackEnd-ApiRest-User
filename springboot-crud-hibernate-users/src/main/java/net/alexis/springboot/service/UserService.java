@@ -50,7 +50,7 @@ public class UserService{
 		}catch(DataIntegrityViolationException e){
 			throw new PasswordValidationException("Email is already assigned");
 		}catch(Exception e) {
-			throw new GenericException("Something bad happened ... Ups");
+			throw new GenericException("Internal error, please communicate with the administrator of this application");
 		}		
 		
 	}
