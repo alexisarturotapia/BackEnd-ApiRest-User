@@ -29,4 +29,10 @@ public class UserExceptionHandler {
         return new ResponseEntity<>(errorResponse,HttpStatus.CONFLICT);
     }
 	
+	@ExceptionHandler(value = GenericException.class)
+    public ResponseEntity<UserExceptionResponse> handleGenericException(GenericException ex){
+		UserExceptionResponse errorResponse = new UserExceptionResponse();
+        errorResponse.setMessage(ex.getMessage());
+        return new ResponseEntity<>(errorResponse,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
